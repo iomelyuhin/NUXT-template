@@ -5,7 +5,7 @@ export default {
   //   base: '/<repo-name>/',
   // },
   head: {
-    title: 'soulful-workshop',
+    title: 'Nuxt-template',
     htmlAttrs: {
       lang: 'en',
     },
@@ -34,7 +34,10 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [],
+  buildModules: [
+    "@nuxtjs/svg", 
+    '@nuxtjs/fontawesome'
+  ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -43,4 +46,9 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+  fontawesome: {
+    icons: {
+      solid: ['faUser']
+    }
+  }
 };

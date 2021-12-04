@@ -21,7 +21,11 @@
 		"vue": "^2.6.12"
 	},
 	"devDependencies": {
+		"@fortawesome/free-brands-svg-icons": "^5.15.4",
+		"@fortawesome/free-solid-svg-icons": "^5.15.4",
+		"@nuxtjs/fontawesome": "^1.1.2",
 		"@nuxtjs/style-resources": "^1.0.0",
+		"@nuxtjs/svg": "^0.3.0",
 		"eslint": "^7.20.0",
 		"eslint-config-airbnb-base": "^14.2.1",
 		"eslint-import-resolver-nuxt": "^1.0.1",
