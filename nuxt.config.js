@@ -35,8 +35,8 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    "@nuxtjs/svg", 
-    '@nuxtjs/fontawesome'
+    '@nuxtjs/svg',
+    '@nuxtjs/fontawesome',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -48,7 +48,7 @@ export default {
   build: {},
   fontawesome: {
     icons: {
-      solid: ['faUser']
-    }
-  }
+      solid: ['faUser'],
+    },
+  },
 };

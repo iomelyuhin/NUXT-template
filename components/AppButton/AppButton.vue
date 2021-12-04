@@ -6,32 +6,34 @@
     >
       <div class="button__icon">
         <img
-          class="button__icon-pic"
           v-if="svgIcon"
+          class="button__icon-pic"
           :src="require(`@/assets/images/icons/${svgIcon}.svg`)"
         />
         <font-awesome-icon
-          class="button__icon-fa"
           v-if="faIcon"
+          class="button__icon-fa"
           :icon="[faIconType, faIconName]"
         />
       </div>
-      <div class="button__text">{{ text }}</div>
+      <div class="button__text">
+        {{ text }}
+      </div>
     </button>
     <a
-      :href="link"
       v-if="btnType == 'link'"
+      :href="link"
       :class="`button ${btnRole} ${btnStyle} ${btnSize}`"
     >
       <div class="button__icon">
         <img
-          class="button__icon-pic"
           v-if="svgIcon"
+          class="button__icon-pic"
           :src="require(`@/assets/images/icons/${svgIcon}.svg`)"
         />
         <font-awesome-icon
-          class="button__icon-fa"
           v-if="faIcon"
+          class="button__icon-fa"
           :icon="[faIconType, faIconName]"
         />
       </div>
@@ -43,23 +45,47 @@
 <script>
 export default {
   props: {
-    text: String,
-    btnRole: String,
-    btnType: String,
-    btnStyle: String,
-    btnSize: String,
-    link: String,
-    svgIcon: String,
-    faIcon: String
+    text: {
+      type: String,
+      default: 'Action',
+    },
+    btnRole: {
+      type: String,
+      default: 'primary',
+    },
+    btnType: {
+      type: String,
+      default: 'button',
+    },
+    btnStyle: {
+      type: String,
+      default: 'filled',
+    },
+    btnSize: {
+      type: String,
+      default: 'normal',
+    },
+    link: {
+      type: String,
+      default: '#',
+    },
+    svgIcon: {
+      type: String,
+      default: '',
+    },
+    faIcon: {
+      type: String,
+      default: '',
+    },
   },
   computed: {
     faIconType() {
-      return this.faIcon.split(", ")[0];
+      return this.faIcon.split(', ')[0];
     },
     faIconName() {
-      return this.faIcon.split(", ")[1];
-    }
-  }
+      return this.faIcon.split(', ')[1];
+    },
+  },
 };
 </script>
 

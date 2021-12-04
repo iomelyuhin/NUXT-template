@@ -1,44 +1,44 @@
 {
-	"name": "nuxt-template",
-	"version": "1.0.0",
-	"private": true,
-	"scripts": {
-		"dev": "nuxt",
-		"build": "nuxt build",
-		"start": "nuxt start",
-		"generate": "nuxt generate",
-		"deploy": "push-dir --dir=dist --branch=gh-pages --cleanup",
-		"lint": "npm run lint:js",
-		"lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
-		"lint:js": "eslint --ext .js,.vue --ignore-path .gitignore ."
-	},
-	"pre-commit": [
-		"lint"
-	],
-	"dependencies": {
-		"core-js": "^3.8.3",
-		"nuxt": "^2.14.12",
-		"vue": "^2.6.12"
-	},
-	"devDependencies": {
-		"@fortawesome/free-brands-svg-icons": "^5.15.4",
-		"@fortawesome/free-solid-svg-icons": "^5.15.4",
-		"@nuxtjs/fontawesome": "^1.1.2",
-		"@nuxtjs/style-resources": "^1.0.0",
-		"@nuxtjs/svg": "^0.3.0",
-		"eslint": "^7.20.0",
-		"eslint-config-airbnb-base": "^14.2.1",
-		"eslint-import-resolver-nuxt": "^1.0.1",
-		"eslint-plugin-import": "^2.22.1",
-		"eslint-plugin-nuxt": "^2.0.0",
-		"eslint-plugin-vue": "^7.6.0",
-		"fibers": "^5.0.0",
-		"node-sass": "^5.0.0",
-		"pre-commit": "^1.2.2",
-		"pug": "^3.0.0",
-		"pug-plain-loader": "^1.1.0",
-		"push-dir": "^0.4.1",
-		"sass": "^1.32.7",
-		"sass-loader": "10"
-	}
+  "name": "nuxt-template",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup",
+    "lint": "npm run lint:js",
+    "lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
+    "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore ."
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "dependencies": {
+    "core-js": "^3.8.3",
+    "nuxt": "^2.14.12",
+    "vue": "^2.6.12"
+  },
+  "devDependencies": {
+    "@fortawesome/free-brands-svg-icons": "^5.15.4",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@nuxtjs/fontawesome": "^1.1.2",
+    "@nuxtjs/style-resources": "^1.0.0",
+    "@nuxtjs/svg": "^0.3.0",
+    "eslint": "^7.20.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-import-resolver-nuxt": "^1.0.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-nuxt": "^2.0.0",
+    "eslint-plugin-vue": "^7.6.0",
+    "fibers": "^5.0.0",
+    "node-sass": "^5.0.0",
+    "pre-commit": "^1.2.2",
+    "pug": "^3.0.0",
+    "pug-plain-loader": "^1.1.0",
+    "push-dir": "^0.4.1",
+    "sass": "^1.32.7",
+    "sass-loader": "10"
+  }
 }
