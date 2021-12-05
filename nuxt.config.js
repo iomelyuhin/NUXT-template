@@ -22,6 +22,8 @@ export default {
     '~assets/scss/colors.scss',
     '~assets/scss/media.scss',
     '~assets/scss/mixins.scss',
+    '~assets/scss/text.scss',
+    '~assets/scss/base.scss',
   ],
 
   styleResources: {
@@ -34,21 +36,16 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-    '@nuxtjs/svg',
-    '@nuxtjs/fontawesome',
-  ],
+  buildModules: ['@nuxtjs/svg', '@nuxtjs/fontawesome'],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    '@nuxtjs/style-resources',
-  ],
+  modules: ['@nuxtjs/style-resources'],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
   fontawesome: {
     icons: {
-      solid: ['faUser'],
+      solid: ['faUser', 'faAngleDown'],
     },
   },
 };

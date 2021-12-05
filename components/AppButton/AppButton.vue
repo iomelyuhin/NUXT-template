@@ -4,7 +4,7 @@
       v-if="btnType == 'button'"
       :class="`button ${btnRole} ${btnStyle} ${btnSize}`"
     >
-      <div class="button__icon">
+      <div v-if="svgIcon || faIcon" class="button__icon">
         <img
           v-if="svgIcon"
           class="button__icon-pic"
@@ -25,7 +25,7 @@
       :href="link"
       :class="`button ${btnRole} ${btnStyle} ${btnSize}`"
     >
-      <div class="button__icon">
+      <div v-if="svgIcon || faIcon" class="button__icon">
         <img
           v-if="svgIcon"
           class="button__icon-pic"
@@ -39,6 +39,48 @@
       </div>
       <div class="button__text">{{ text }}</div>
     </a>
+    <div
+      class="select-button"
+      :class="{ active: isOpenButtonMenu }"
+      v-if="btnType == 'select'"
+    >
+      <button
+        @click="toggleButtonMenu"
+        :class="`button ${btnRole} ${btnStyle} ${btnSize}`"
+      >
+        <div v-if="svgIcon || faIcon" class="button__icon">
+          <img
+            v-if="svgIcon"
+            class="button__icon-pic"
+            :src="require(`@/assets/images/icons/${svgIcon}.svg`)"
+          />
+          <font-awesome-icon
+            v-if="faIcon"
+            class="button__icon-fa"
+            :icon="[faIconType, faIconName]"
+          />
+        </div>
+        <div class="button__text">
+          {{ text }}
+        </div>
+        <div class="button__select-icon">
+          <font-awesome-icon
+            icon="angle-down"
+            class="button__select-icon-triangle"
+          />
+        </div>
+      </button>
+      <div class="select-button__menu">
+        <button
+          v-for="(item, index) in menu"
+          :key="index"
+          class="select-button__menu-item"
+          :class="`button ${btnRole} ${btnStyle} ${btnSize}`"
+        >
+          {{ item.text }}
+        </button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -48,35 +90,59 @@ export default {
     text: {
       type: String,
       default: 'Action',
+      required: false,
     },
     btnRole: {
       type: String,
       default: 'primary',
+      required: false,
     },
     btnType: {
       type: String,
       default: 'button',
+      required: false,
     },
     btnStyle: {
       type: String,
       default: 'filled',
+      required: false,
     },
     btnSize: {
       type: String,
       default: 'normal',
+      required: false,
     },
     link: {
       type: String,
       default: '#',
+      required: false,
     },
     svgIcon: {
       type: String,
       default: '',
+      required: false,
     },
     faIcon: {
-      type: String,
+      type: [String, Array],
       default: '',
+      required: false,
     },
+    menu: {
+      type: Array,
+      default() {
+        return [
+          {
+            icon: 'user',
+            text: 'menu item 1',
+          },
+        ];
+      },
+    },
+  },
+  data() {
+    return {
+      isOpenButtonMenu: false,
+    };
   },
   computed: {
     faIconType() {
@@ -86,11 +152,18 @@ export default {
       return this.faIcon.split(', ')[1];
     },
   },
+  methods: {
+    toggleButtonMenu() {
+      this.isOpenButtonMenu = !this.isOpenButtonMenu;
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 //colors
+$border: none;
+
 $app-btn-primary-text-color: $white;
 $app-btn-primary-button-color: #238636;
 $app-btn-primary-text-hover-color: #fff;
@@ -127,6 +200,7 @@ $app-btn-normal-icon: 24px;
 $app-btn-small-icon: 18px;
 
 .button {
+  position: relative;
   display: flex;
   align-items: center;
   width: fit-content;
@@ -137,14 +211,14 @@ $app-btn-small-icon: 18px;
   font-size: $app-btn-normal-font-size;
   transition: 0.3s;
   cursor: pointer;
+  border: $border;
+  text-decoration: none;
 
   &:hover {
     background-color: $app-btn-primary-button-hover-color;
     color: $app-btn-primary-text-hover-color;
   }
 
-  &.primary {
-  }
   &.secondary {
     color: $app-btn-secondary-text-color;
     background-color: $app-btn-secondary-button-color;
@@ -193,5 +267,34 @@ $app-btn-small-icon: 18px;
 
 .button__icon {
   margin-right: $app-btn-normal-size-margin-icon;
+}
+
+.select-button {
+  position: relative;
+  &.active {
+    .button__select-icon {
+      transform: rotate(180deg);
+    }
+    .select-button__menu {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      position: absolute;
+      right: 0;
+    }
+  }
+}
+
+.button__select-icon {
+  margin-left: 10px;
+  transition: 0.3s;
+}
+
+.select-button__menu {
+  display: none;
+  padding: 3px;
+}
+
+.select-button__menu-item {
 }
 </style>
